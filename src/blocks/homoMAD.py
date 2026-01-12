@@ -37,6 +37,20 @@ class HomoMADProcessor:
         
         self.prompt_dir = "asset/MAD/prompt/"
         
+        # Define exact column order to match output file
+        self.final_columns = [
+            'learnerId', 'tag1', 'tag2', 'tag3', 'lessonCount', 
+            'conversationHistory', 'conversationHistoryCleaned', 
+            'score', 
+            'agent_a_initial', 'agent_b_initial', 'agent_c_initial',
+            'agent_a_final', 'agent_b_final', 'agent_c_final',
+            'gemini_judge_response',
+            'tokens_a_init', 'tokens_b_init', 'tokens_c_init',
+            'tokens_a_final', 'tokens_b_final', 'tokens_c_final',
+            'tokens_judge',
+            'feedback'
+        ]
+        
         # Load logic
         self.load_prompts()
         self.df = self.initialize_data()
@@ -56,26 +70,21 @@ class HomoMADProcessor:
             self.judge_prompt = f.read()
 
     def initialize_data(self):
-        required_cols = [
-            'score', 'feedback',
-            'agent_a_initial', 'agent_b_initial', 'agent_c_initial',
-            'agent_a_final', 'agent_b_final', 'agent_c_final',
-            'gemini_judge_response',
-            'tokens_a_init', 'tokens_b_init', 'tokens_c_init',
-            'tokens_a_final', 'tokens_b_final', 'tokens_c_final',
-            'tokens_judge'
-        ]
+        # Columns that need to be ensured exist
         
         if os.path.exists(self.output_csv_path):
             print(f"Resuming from {self.output_csv_path}...")
             df = pd.read_csv(self.output_csv_path)
-            for col in required_cols:
-                # Ensure column exists
+            # Ensure all columns exist
+            for col in self.final_columns:
                 if col not in df.columns:
                     df[col] = None
-                
-                # Cast to object to handle strings/dicts without dtype issues
-                df[col] = df[col].astype('object')
+                    df[col] = df[col].astype('object')
+                elif col in ['score', 'feedback', 'gemini_judge_response']:
+                     df[col] = df[col].astype('object')
+            
+            # Reorder
+            df = df[self.final_columns]
             return df
         else:
             print(f"Starting new process from {self.source_csv_path}...")
@@ -83,9 +92,13 @@ class HomoMADProcessor:
                 raise FileNotFoundError(f"Input CSV not found at {self.source_csv_path}")
             df = pd.read_csv(self.source_csv_path)
             
-            for col in required_cols:
-                df[col] = None
-                df[col] = df[col].astype('object')
+            for col in self.final_columns:
+                if col not in df.columns:
+                    df[col] = None
+                    df[col] = df[col].astype('object')
+            
+            # Reorder
+            df = df[self.final_columns]
                 
             df.to_csv(self.output_csv_path, index=False)
             return df

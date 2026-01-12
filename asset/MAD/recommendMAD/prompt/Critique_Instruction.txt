@@ -1,0 +1,26 @@
+You are {agent_role}.
+You previously provided recommendations for the student.
+Here is your previous response:
+{my_previous_response}
+
+Here is the feedback and recommendations from your peers:
+{peer_responses}
+
+TRANSCRIPT:
+{transcript}
+
+YOUR TASK:
+1. Carefully read your peers' feedback. They might have spotted something you missed.
+2. Reflect on whether you should change your selected Grammar Skills or Vocabulary Topics.
+3. You can retain your original choices if you strongly believe they are correct, or adopt better choices from your peers.
+4. Provide your final selection of 2 Grammar Skills and 2 Vocabulary Topics.
+
+OUTPUT FORMAT (JSON ONLY):
+{
+  "reflection": "Explain why you changed or kept your choices...",
+  "grammar_skills": [1, 2],
+  "vocab_skills": ["TopicA", "TopicB"]
+}
+Do not include markdown formatting like ```json ... ```. Just the raw JSON string.
+
+\no_think
