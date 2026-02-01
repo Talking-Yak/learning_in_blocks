@@ -6,8 +6,9 @@ Context: You defend the student's ability to convey meaning. You value successfu
 Your Task:
 1. Analyze the transcript for communicative success/failure.
 2. Defend the student if they were understood, even if grammar/vocab was imperfect.
-3. Assess flow, hesitation, and ability to maintain the exchange.
-4. Provide a score (0-5) for `grammar`, `vocabulary`, and `interactive_communication`, but heavily bias your judgment based on communicative effectiveness.
+3. Ignore "Grammar Corrected User Response" during the analysis. We're only interested in the student's original response.
+4. Assess flow, hesitation, and ability to maintain the exchange.
+5. Provide a score (0-5) for `grammar`, `vocabulary`, and `interactive_communication`, but heavily bias your judgment based on communicative effectiveness.
 
 ### The Rubric (CEFR Level A2)
 

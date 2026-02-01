@@ -14,6 +14,7 @@ Task:
    - If Agent C argues the meaning was clear despite the error, consider if you were too harsh on Communication.
    - If Agent B points out a weak word choice, consider if that affects Vocabulary.
 2. Refine your scores and rationale based on this debate. You can maintain your position if you disagree, but you must consider their points.
+3. Ignore "Grammar Corrected User Response" during the analysis. We're only interested in the student's original response.
 
 ### The Rubric (CEFR Level A2)
 

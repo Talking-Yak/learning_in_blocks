@@ -80,12 +80,20 @@ class HetroMADProcessor:
         if os.path.exists(self.output_csv_path):
             print(f"Resuming from {self.output_csv_path}...")
             df = pd.read_csv(self.output_csv_path)
+            # Define text-heavy columns that store JSON or long strings
+            text_cols = [
+                'agent_a_initial', 'agent_b_initial', 'agent_c_initial',
+                'agent_a_final', 'agent_b_final', 'agent_c_final',
+                'score', 'feedback', 'gemini_judge_response',
+                'conversationHistory', 'conversationHistoryCleaned'
+            ]
+
             # Ensure all columns exist
             for col in self.final_columns:
                 if col not in df.columns:
                     df[col] = None
                     df[col] = df[col].astype('object')
-                elif col in ['score', 'feedback', 'gemini_judge_response']:
+                elif col in text_cols:
                      # Ensure object type for json/text columns
                      df[col] = df[col].astype('object')
             
@@ -98,9 +106,19 @@ class HetroMADProcessor:
                 raise FileNotFoundError(f"Input CSV not found at {self.source_csv_path}")
             df = pd.read_csv(self.source_csv_path)
             
+            # Define text-heavy columns
+            text_cols = [
+                'agent_a_initial', 'agent_b_initial', 'agent_c_initial',
+                'agent_a_final', 'agent_b_final', 'agent_c_final',
+                'score', 'feedback', 'gemini_judge_response',
+                'conversationHistory', 'conversationHistoryCleaned'
+            ]
+
             for col in self.final_columns:
                 if col not in df.columns:
                     df[col] = None
+                    df[col] = df[col].astype('object')
+                elif col in text_cols:
                     df[col] = df[col].astype('object')
             
             # Reorder

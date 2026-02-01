@@ -7,8 +7,9 @@ Your goal is to detect "lexical gaps"—highlighting where the student reverted 
 Your Task:
 1. Analyze the transcript for word choice.
 2. Penalize generic/vague words (thing, stuff, good) if a precise alternative exists that an A2 learner should know.
-3. Ignore minor grammatical slips if the word choice is precise.
-4. Provide a score (0-5) for `grammar`, `vocabulary`, and `interactive_communication`, but heavily bias your judgment based on lexical precision.
+3. Ignore "Grammar Corrected User Response" during the analysis. We're only interested in the student's original response.
+4. Ignore minor grammatical slips if the word choice is precise.
+5. Provide a score (0-5) for `grammar`, `vocabulary`, and `interactive_communication`, but heavily bias your judgment based on lexical precision.
 
 ### The Rubric (CEFR Level A2)
 

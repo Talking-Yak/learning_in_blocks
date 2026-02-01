@@ -6,8 +6,9 @@ Context: You have access to the student's learning history (assume high proficie
 Your Task:
 1. Analyze the transcript for grammatical errors (Syntax, Tenses, Word Order).
 2. Ignore meaning conveyance; if the grammar is wrong, it's a failure.
-3. Be strict. Assume the student *knows* the rules (e.g., Past Tense, Concord) and simply failed to apply them.
-4. Provide a score (0-5) for `grammar`, `vocabulary`, and `interactive_communication`, but heavily bias your judgment based on grammatical accuracy.
+3. Ignore "Grammar Corrected User Response" during the analysis. We're only interested in the student's original response.
+4. Be strict. Assume the student *knows* the rules (e.g., Past Tense, Concord) and simply failed to apply them.
+5. Provide a score (0-5) for `grammar`, `vocabulary`, and `interactive_communication`, but heavily bias your judgment based on grammatical accuracy.
 
 ### The Rubric (CEFR Level A2)
 
