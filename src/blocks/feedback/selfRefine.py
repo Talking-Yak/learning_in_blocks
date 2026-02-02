@@ -37,7 +37,7 @@ class SelfRefineProcessor:
         
         self.score_prompt_path = "asset/selfRefine/prompt/selfRefineScore.txt"
         self.review_prompt_path = "asset/selfRefine/prompt/selfRefineReview.txt"
-        self.gemini_format_prompt_path = "asset/selfRefine/prompt/geminiFormattingPrompt.txt"
+        self.format_prompt_path = "asset/selfRefine/prompt/formattingPrompt.txt"
         self.feedback_prompt_path = "asset/selfRefine/prompt/selfRefineFeedback.txt"
         
         # Load logic
@@ -51,8 +51,8 @@ class SelfRefineProcessor:
         with open(self.review_prompt_path, 'r') as f:
             self.review_prompt_template = f.read()
         
-        with open(self.gemini_format_prompt_path, 'r') as f:
-            self.gemini_format_template = f.read()
+        with open(self.format_prompt_path, 'r') as f:
+            self.format_template = f.read()
             
         with open(self.feedback_prompt_path, 'r') as f:
             self.feedback_prompt_template = f.read()
@@ -202,7 +202,7 @@ class SelfRefineProcessor:
         """
         Uses Gemini to format the final Qwen response (resp3) into valid JSON.
         """
-        prompt = self.gemini_format_template.replace("{input_data}", input_data)
+        prompt = self.format_template.replace("{input_data}", input_data)
         
         print("  - Requesting Gemini Formatting...")
         

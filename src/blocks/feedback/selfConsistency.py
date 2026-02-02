@@ -35,7 +35,7 @@ class SelfConsistencyProcessor:
         self.source_csv_path = "asset/dd_processed.csv"
         self.output_csv_path = "asset/selfConsistency/selfConsistencyNT.csv" 
         self.score_prompt_path = "asset/selfConsistency/prompt/selfConsistencyScore.txt"
-        self.gemini_consensus_prompt_path = "asset/selfConsistency/prompt/geminiConsensusPrompt.txt"
+        self.consensus_prompt_path = "asset/selfConsistency/prompt/consensusPrompt.txt"
         self.feedback_prompt_path = "asset/selfConsistency/prompt/selfConsistencyFeedback.txt"
         
         # Load logic
@@ -46,8 +46,8 @@ class SelfConsistencyProcessor:
         with open(self.score_prompt_path, 'r') as f:
             self.score_prompt_template = f.read()
         
-        with open(self.gemini_consensus_prompt_path, 'r') as f:
-            self.gemini_consensus_template = f.read()
+        with open(self.consensus_prompt_path, 'r') as f:
+            self.consensus_template = f.read()
             
         with open(self.feedback_prompt_path, 'r') as f:
             self.feedback_prompt_template = f.read()
@@ -194,7 +194,7 @@ class SelfConsistencyProcessor:
         for i, resp in enumerate(qwen_responses):
             responses_text += f"\n--- Response {i+1} ---\n{resp}\n"
             
-        prompt = self.gemini_consensus_template.replace("{transcript}", transcript)
+        prompt = self.consensus_template.replace("{transcript}", transcript)
         prompt = prompt.replace("{responses}", responses_text)
         
         print("  - Requesting Gemini Consensus...")
