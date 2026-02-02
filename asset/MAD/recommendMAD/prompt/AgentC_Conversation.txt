@@ -29,3 +29,5 @@ OUTPUT FORMAT (JSON ONLY):
   "vocab_skills": ["TopicA", "TopicB"]
 }
 Do not include markdown formatting like ```json ... ```. Just the raw JSON string.
+
+\no_think

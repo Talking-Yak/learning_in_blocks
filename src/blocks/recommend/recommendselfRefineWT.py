@@ -159,6 +159,7 @@ REQUIRED FORMAT:
             return df
 
     def call_qwen(self, prompt, temperature=0.7):
+        prompt = prompt.replace("\\no_think", "").strip()
         while True:
             try:
                 response = self.novita_client.chat.completions.create(
@@ -178,6 +179,7 @@ REQUIRED FORMAT:
                 time.sleep(5)
 
     def call_judge(self, prompt):
+        prompt = prompt.replace("\\no_think", "").strip()
         max_retries = 3
         for attempt in range(max_retries):
             try:
