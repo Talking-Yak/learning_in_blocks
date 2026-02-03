@@ -35,10 +35,10 @@ class SelfRefineProcessor:
         self.source_csv_path = "asset/CSVs/dd_processed.csv"
         self.output_csv_path = "asset/CSVs/selfRefineNT.csv" 
         
-        self.score_prompt_path = "asset/selfRefine/prompt/selfRefineScore.txt"
-        self.review_prompt_path = "asset/selfRefine/prompt/selfRefineReview.txt"
-        self.format_prompt_path = "asset/selfRefine/prompt/formattingPrompt.txt"
-        self.feedback_prompt_path = "asset/selfRefine/prompt/selfRefineFeedback.txt"
+        self.score_prompt_path = "asset/selfRefine/selfRefineScore.txt"
+        self.review_prompt_path = "asset/selfRefine/selfRefineReview.txt"
+        self.format_prompt_path = "asset/selfRefine/formattingPrompt.txt"
+        self.feedback_prompt_path = "asset/selfRefine/selfRefineFeedback.txt"
         
         # Load logic
         self.load_prompts()

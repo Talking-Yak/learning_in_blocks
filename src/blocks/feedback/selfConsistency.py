@@ -34,9 +34,9 @@ class SelfConsistencyProcessor:
         # File paths
         self.source_csv_path = "asset/CSVs/dd_processed.csv"
         self.output_csv_path = "asset/CSVs/selfConsistencyNT.csv" 
-        self.score_prompt_path = "asset/selfConsistency/prompt/selfConsistencyScore.txt"
-        self.consensus_prompt_path = "asset/selfConsistency/prompt/consensusPrompt.txt"
-        self.feedback_prompt_path = "asset/selfConsistency/prompt/selfConsistencyFeedback.txt"
+        self.score_prompt_path = "asset/selfConsistency/selfConsistencyScore.txt"
+        self.consensus_prompt_path = "asset/selfConsistency/consensusPrompt.txt"
+        self.feedback_prompt_path = "asset/selfConsistency/selfConsistencyFeedback.txt"
         
         # Load logic
         self.load_prompts()

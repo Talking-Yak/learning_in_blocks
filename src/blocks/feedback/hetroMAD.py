@@ -32,7 +32,7 @@ class HetroMADProcessor:
         self.source_csv_path = "asset/CSVs/dd_processed.csv"
         self.output_csv_path = "asset/CSVs/hetroMAD_output.csv"
         
-        self.prompt_dir = "asset/MAD/hetroMAD/prompt/"
+        self.prompt_dir = "asset/MAD/hetroMAD/"
         
         # Load logic
         self.load_prompts()

@@ -28,7 +28,7 @@ class HomoMADProcessor:
         self.source_csv_path = "asset/CSVs/dd_processed.csv"
         self.output_csv_path = "asset/CSVs/homoMAD_output.csv" 
         
-        self.prompt_dir = "asset/MAD/homoMAD/prompt/"
+        self.prompt_dir = "asset/MAD/homoMAD/"
         
         # Load logic
         self.load_prompts()

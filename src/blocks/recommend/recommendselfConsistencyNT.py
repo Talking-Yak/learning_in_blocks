@@ -29,7 +29,7 @@ class RecommendSelfConsistencyProcessor:
         self.source_csv_path = "asset/CSVs/dd_processed.csv"
         self.output_csv_path = "asset/CSVs/recommendSelfConsistencyNT_output.csv" 
         
-        self.prompt_dir = "asset/MAD/recommendMAD/prompt/"
+        self.prompt_dir = "asset/recommend/"
         
         # Context Data Paths
         self.grammar_csv_path = "asset/grammar_flow.csv"
